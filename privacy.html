@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy policy — DishLift</title>
+  <meta name="description" content="Privacy policy for the DishLift iOS app and the dishlift.app website, from TJNAI.ai LLC.">
+  <meta name="author" content="TJNAI.ai LLC">
+  <meta name="theme-color" content="#FAF7F2">
+  <meta name="color-scheme" content="light">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="canonical" href="https://dishlift.app/privacy.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DishLift">
+  <meta property="og:title" content="Privacy policy — DishLift">
+  <meta property="og:description" content="Privacy policy for the DishLift iOS app and the dishlift.app website, from TJNAI.ai LLC.">
+  <meta property="og:url" content="https://dishlift.app/privacy.html">
+  <meta property="og:image" content="https://dishlift.app/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="DishLift app icon beside the words: Photograph a recipe you love. Coming soon to the App Store.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Privacy policy — DishLift">
+  <meta name="twitter:description" content="Privacy policy for the DishLift iOS app and the dishlift.app website, from TJNAI.ai LLC.">
+  <meta name="twitter:image" content="https://dishlift.app/assets/og.png">
+  <meta name="twitter:image:alt" content="DishLift app icon beside the words: Photograph a recipe you love. Coming soon to the App Store.">
+  <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap header-bar">
+      <a class="brand" href="/">
+        <img src="/assets/icon.svg" alt="" width="36" height="36">
+        DishLift
+      </a>
+      <nav class="nav-primary" aria-label="Primary">
+        <a href="/#how">How it works</a>
+        <a href="/#goals">Goals</a>
+        <a href="/support.html">Support</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <div class="wrap">
+      <header class="page-head">
+        <h1>Privacy policy</h1>
+        <p class="updated">Last updated October 20, 2026</p>
+        <p>This notice covers the website at dishlift.app and the DishLift iOS app from TJNAI.ai LLC. DishLift is not on the App Store yet. The app sections describe the product as it is designed. If the shipping app handles data differently, this page will be updated before release.</p>
+      </header>
+
+      <article class="prose">
+        <h2>Who we are</h2>
+        <p>DishLift is made by <strong>TJNAI.ai LLC</strong>, a North Carolina limited liability company. Email <a href="mailto:info@tjnai.ai">info@tjnai.ai</a>. Our studio site is <a href="https://tjnai.ai">tjnai.ai</a>.</p>
+
+        <h2>This website</h2>
+        <p>The dishlift.app website uses no cookies and no tracking. It does not set cookies, does not use browser storage, does not run analytics, and does not load third-party scripts. The pages are static files. There is no account and no form on this site.</p>
+        <p>If you email info@tjnai.ai, we receive whatever you put in that message — your address, and anything you write — and we use it to reply and to keep a record of the conversation. Please don’t send recipe photos or health details by email unless you mean to.</p>
+        <p>The site is hosted on GitHub Pages. GitHub may keep ordinary server logs for hosting, such as an IP address, browser type, and the time of a request. We do not add our own logging or analytics on top of that. GitHub’s privacy statement is at <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement">docs.github.com</a>.</p>
+        <!-- REVIEW: We do not operate GitHub Pages logs and cannot set their retention. Confirm this hosting sentence still matches how the site is deployed. -->
+
+        <h2>The app, in short</h2>
+        <p>DishLift is a cooking app. You photograph a recipe. The app reads it, can suggest a version with more protein, less sodium, or less sugar, can make an AI image of the dish, and can keep the result in a private cookbook.</p>
+        <p>Suggestions are general cooking ideas. They are not medical or dietary advice. Goals and food preferences you choose to save are personal. We treat them as private.</p>
+
+        <h2>Recipe photos</h2>
+        <p>When you photograph or choose a recipe image, the app sends that photo to a Supabase backend. A Supabase edge function calls Anthropic’s Claude to turn the photo into a structured recipe: fields such as title, servings, ingredients, and steps. In the current backend notes the default model is Claude Sonnet 4.6 (<code>claude-sonnet-4-6</code>). The model name can change.</p>
+        <!-- REVIEW: Confirm the Supabase project region, the storage bucket, and how long the uploaded photo object is kept after extraction. The source notes name the extract function, ANTHROPIC_API_KEY, and EXTRACT_MODEL. They do not document object retention or log retention. -->
+        <p>A recipe photo can hold more than a recipe. A page may include names, handwriting, an address, a church or community name, or other notes. Treat the photo as personal information.</p>
+        <p>You are asked to review and correct the extracted recipe before a transformation is applied. The design keeps the original photo for your reference only if you allow that storage, and it lets you delete the photo while keeping the structured recipe.</p>
+        <!-- REVIEW: Confirm the shipping build actually offers “keep the photo” and “delete the photo, keep the recipe” before this sentence is treated as a description of live behavior. -->
+
+        <h2>Rewriting a recipe</h2>
+        <p>Reading the photo and rewriting the recipe are different steps. The materials behind this notice document Claude for reading the photo. They do not yet name the model that writes the new version for the goal you pick. This page will name that provider, and say whether the request includes dietary preferences or other choices you saved, once that path is fixed for release.</p>
+        <!-- REVIEW: Name the transformation model and vendor. Say whether prompts include goals, allergens, avoided ingredients, or other preference fields. Do not assume it is the same Claude extract call. -->
+
+        <h2>AI images of a dish</h2>
+        <p>After you confirm a recipe, the app can create a picture of what the finished dish could look like. The picture is built from the recipe — name, ingredients, and method — and it is labeled AI-generated. It is not a photo of a dish you cooked, and the design says it must not copy the page you photographed. The design stores the picture with the recipe, along with the prompt and style used to make it.</p>
+        <!-- REVIEW: The source docs do not name the image-generation provider. Confirm the vendor, whether the original photo is ever sent (the design says prompts must not copy the photographed page), where the image file lives (on device, in Supabase storage, or both), and how long the vendor keeps prompts or images. -->
+
+        <h2>On your device and on our servers</h2>
+        <p>A trial without an account is part of the design, so a first use does not require you to register. What follows is the split the design describes. The shipping build should be checked against it before release.</p>
+        <!-- REVIEW: The product requirements say a person can try the app without an account, and they also list “accounts or anonymous trial” as an open question. Confirm which one ships. -->
+        <ul>
+          <li><strong>Sent to the server:</strong> the recipe photo, so Supabase can pass it to Claude for extraction. Recipes, generated images, and preferences are designed to be savable in the library, which means a server copy when that library is synced.</li>
+          <li><strong>Kept on the device in the current design:</strong> a count of complimentary makeovers, so the app knows when a purchase would be required. The plan is to move that count to an account or an Apple CloudKit record before public launch. It is not a device fingerprint.</li>
+          <li><strong>Only if you allow it:</strong> keeping the original photo, and saving health-related preferences.</li>
+        </ul>
+        <!-- REVIEW: Confirm on-device vs server for the cookbook, including chapter names. The design describes a private library of original and modified recipes, images, notes, and goals. It does not say whether chapter titles live only on the device, only in Supabase, or in both. -->
+        <!-- REVIEW: The free-makeover count is described as local during development (two successful makeovers in the product requirements) and as moving to an account or CloudKit before launch. Confirm the number, the store, and that the counter is not tied to a hardware identifier. -->
+        <p>Preferences the design can store, when you choose to set them, include goals, dietary preferences, allergens, ingredients you would rather avoid, and sweetener preference. You do not have to save these.</p>
+
+        <h2>Nutrition estimates</h2>
+        <p>The app can show estimated calories, protein, sodium, and sugar per serving, with a sign when the estimate is uncertain. The design uses USDA FoodData Central as the baseline food-composition reference. These are estimates from the recipe as read, not laboratory or package-label values.</p>
+        <!-- REVIEW: Confirm whether nutrition lookup uses a local copy of food data or sends ingredient text to a remote API. Do not tell users we transmit data to USDA unless that is true. -->
+
+        <h2>Purchases</h2>
+        <p>No one can pay for DishLift today. When a purchase is offered, Apple In-App Purchase is the payment system. RevenueCat is the planned way the app checks a “pro” entitlement and restores a purchase. Purchase records are not supposed to include your recipes or food preferences.</p>
+        <!-- REVIEW: Confirm RevenueCat fields (app user id, receipts, aliases) and that no recipe text, photo, or preference is attached to a purchase event. Apple’s privacy policy covers App Store payment. -->
+
+        <h2>How we use information</h2>
+        <ul>
+          <li>To read a recipe photo and show you the structured recipe.</li>
+          <li>To rewrite a recipe for a goal you chose, and to explain the swaps.</li>
+          <li>To make and store an AI image of the dish, labeled as generated.</li>
+          <li>To keep the private cookbook you save.</li>
+          <li>To remember preferences you opt in to save.</li>
+          <li>To tell the app whether a purchase is active, once purchases exist.</li>
+          <li>To answer email you send us.</li>
+        </ul>
+        <p>We do not sell personal information. We do not use your private recipe photos to train models unless you explicitly opt in.</p>
+        <!-- REVIEW: Confirm Anthropic API data-usage settings (including any zero-retention option) and that no photo or recipe is kept for model training by Supabase, Anthropic, or the image vendor. -->
+
+        <h2>Who else processes it</h2>
+        <p>To run the app as designed, data is handled by:</p>
+        <ul>
+          <li><strong>Supabase</strong> — backend for the extract function and the library storage the design calls for.</li>
+          <li><strong>Anthropic</strong> — Claude, to read the recipe photo.</li>
+          <li><strong>An image provider</strong> — not yet named in this notice. See the review note in the page source. The picture is part of the product; the vendor will be listed here before release.</li>
+          <li><strong>Apple</strong> — the App Store and In-App Purchase, when those exist, and CloudKit if the makeover count moves there.</li>
+          <li><strong>RevenueCat</strong> — entitlement checks, when purchases exist.</li>
+          <li><strong>GitHub</strong> — hosting for this website only.</li>
+        </ul>
+        <!-- REVIEW: Add the image vendor and any other subprocessor (analytics, crash reporting, nutrition API) before release. The product notes mention an analytics and feedback pipeline, but no vendor is named. This website has no analytics. Do not add an app analytics SDK to this notice until one is actually chosen, and do not send recipe or health-preference fields in analytics events. -->
+        <p>Where a company stores a given request depends on that service and on our project settings. This notice will name the Supabase region before release.</p>
+        <!-- REVIEW: Record the Supabase region and whether Anthropic processes the extract request in the United States or elsewhere. -->
+
+        <h2>How long we keep it</h2>
+        <p>Email is kept as long as we need it to handle the thread, and then deleted when we no longer need it. Recipe photos, recipes, images, and preferences are kept so the app can show you your cookbook, until you delete them or ask us to.</p>
+        <!-- REVIEW: Set concrete retention for Supabase photo objects, edge-function logs, generated images, and backups. The design says to store only what is necessary. It does not give a number of days. -->
+
+        <h2>Deletion and export</h2>
+        <p>The product is designed so you can delete a recipe, delete an uploaded photo while keeping the structured recipe, and delete saved preferences. It is also designed so you can export your data. For a copy or a deletion we have to do on the server, email <a href="mailto:info@tjnai.ai">info@tjnai.ai</a>. We will respond within a reasonable time.</p>
+        <!-- REVIEW: Confirm the in-app delete and export controls, what an export contains (photos or not), and a response time we are willing to promise. -->
+
+        <h2>Security</h2>
+        <p>Recipe data is sent over HTTPS. The product is designed to encrypt recipe photos and generated images at rest. No method of storage is perfect. Please don’t photograph a page you would not want a cooking service to read.</p>
+        <!-- REVIEW: Verify storage encryption, key management, and transport before release. “Designed to” is not the same as “verified in the shipping build.” -->
+
+        <h2>Children</h2>
+        <p>DishLift is a general cooking app for adults. It is not directed at children under 13, and it is not for pediatric diets. We do not knowingly collect personal information from children. If you believe a child has sent a photo or other personal information, email <a href="mailto:info@tjnai.ai">info@tjnai.ai</a> and we will delete it.</p>
+
+        <h2>Changes</h2>
+        <p>If we change this notice, we will change the date at the top. For the app, a material change will be in the build you download, not only on this page.</p>
+
+        <h2>Contact</h2>
+        <p>Privacy questions and deletion requests:</p>
+        <address>
+          TJNAI.ai LLC<br>
+          A North Carolina limited liability company<br>
+          <a href="mailto:info@tjnai.ai">info@tjnai.ai</a><br>
+          <a href="https://tjnai.ai">tjnai.ai</a>
+        </address>
+        <p>See also the <a href="/terms.html">terms of use</a> and <a href="/support.html">support</a>.</p>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-bar">
+      <nav class="nav-footer" aria-label="Footer">
+        <a href="/privacy.html" aria-current="page">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/support.html">Support</a>
+      </nav>
+      <p class="copyright">© 2026 <a href="https://tjnai.ai">TJNAI.ai LLC</a></p>
+    </div>
+  </footer>
+</body>
+</html>
